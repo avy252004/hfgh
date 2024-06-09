@@ -1,0 +1,50 @@
+{
+    "manifest_version": 3,
+    "name": "Webpage Annotator",
+    "version": "1.0",
+    "description": "Annotate webpages with highlights and notes. Includes customization, search, filter, export, and responsive design.",
+    "permissions": [
+      "storage",
+      "activeTab",
+      "scripting"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "photo.png",
+        "48": "photo.png",
+        "128": "photo.png"
+      }
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"],
+        "css": ["styles.css"]
+      }
+    ],
+    "options_page": "options.html",
+    "commands": {
+      "highlight": {
+        "suggested_key": {
+          "default": "Ctrl+Shift+H"
+        },
+        "description": "Highlight selected text"
+      },
+      "add_note": {
+        "suggested_key": {
+          "default": "Ctrl+Shift+N"
+        },
+        "description": "Add a note to the highlighted text"
+      }
+    },
+    "icons": {
+        "16": "photo.png",
+        "48": "photo.png",
+        "128": "photo.png"
+    }
+  }
+  
